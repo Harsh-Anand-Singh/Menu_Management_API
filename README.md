@@ -1,6 +1,6 @@
 # Menu Management API Backend
 
-This project is a backend server for a Menu Management application, built with Node.js, Express, and MongoDB. It allows users to manage categories, subcategories, and items in a menu, with endpoints for creating, retrieving, updating, and deleting these entities.
+This project is a backend server for a Menu Management application, built with Node.js, Express, and MongoDB. It allows users to manage categories, subcategories, and items in a menu, with endpoints for creating, retrieving, and updating these entities.
 
 ## System Architecture
 
