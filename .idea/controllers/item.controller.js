@@ -54,3 +54,28 @@ exports.updateItem = async (req, res) => {
     res.status(400).send(error);
   }
 };
+
+
+// Delete item by ID
+exports.deleteItem = async (req, res) => {
+  try {
+    const item = await Item.findByIdAndDelete(req.params.id);
+    if (!item) return res.status(404).send('Item not found');
+    res.status(200).send({ message: 'Item deleted successfully' });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+
+// Search items by name
+exports.searchItemsByName = async (req, res) => {
+  try {
+    const { name } = req.query;
+    if (!name) return res.status(400).send('Query parameter "name" is required');
+    const items = await Item.find({ name: { $regex: name, $options: 'i' } });
+    res.status(200).send(items);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
