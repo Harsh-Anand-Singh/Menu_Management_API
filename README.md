@@ -1,6 +1,6 @@
 # Menu Management API Backend
 
-This project is a backend server for a Menu Management application, built with Node.js, Express, and MongoDB. It allows users to manage categories, subcategories, and items in a menu, with endpoints for creating, retrieving, and updating these entities.
+This project is a backend server for a Menu Management application, built with Node.js, Express, and MongoDB. It allows users to manage categories, subcategories, and items in a menu, with endpoints for creating, retrieving, updating, searching, and deleting these entities.
 
 ## System Architecture
 
@@ -198,8 +198,79 @@ Use Postman or any other API client to interact with the endpoints. Below is the
     "description": "Updated Description",
     ...
   }
-  
+  ```
 
+- **Search Items**
 
+  ```http
+  GET /api/items/search?name=searchTerm
+  ```
 
+- **Delete an Item**
 
+  ```http
+  DELETE /api/items/:id
+  ```
+
+## Example Requests
+
+### Create a Category
+
+```http
+POST /api/categories
+```
+
+**Request Body:**
+
+```json
+{
+  "name": "Beverages"
+}
+```
+
+### Create a Subcategory
+
+```http
+POST /api/categories/:categoryId/subcategories
+```
+
+**Request Body:**
+
+```json
+{
+  "name": "Soft Drinks"
+}
+```
+
+### Create an Item
+
+```http
+POST /api/subcategories/:subcategoryId/items
+```
+
+**Request Body:**
+
+```json
+{
+  "name": "Coca Cola",
+  "image": "path/to/image.jpg",
+  "description": "Classic Coca Cola",
+  "taxApplicable": true,
+  "tax": 5,
+  "baseAmount": 2.00,
+  "discount": 0.5,
+  "totalAmount": 1.50
+}
+```
+
+### Search Items
+
+```http
+GET /api/items/search?name=Coca
+```
+
+### Delete an Item
+
+```http
+DELETE /api/items/:id
+```
