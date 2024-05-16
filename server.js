@@ -1,9 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const connectDB = require('./config/db.config');
-const categoryRoutes = require('./routes/category.routes');
-const subcategoryRoutes = require('./routes/subcategory.routes');
-const itemRoutes = require('./routes/item.routes');
+const connectDB = require('./.idea/config/db.config');
+const categoryRoutes = require('./.idea/routes/category.routes');
+const subcategoryRoutes = require('./.idea/routes/subcategory.routes');
+const itemRoutes = require('./.idea/routes/item.routes');
 
 const app = express();
 
